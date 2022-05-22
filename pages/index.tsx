@@ -1,10 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import ItemList from './../src/ui/itemList'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
 const Home: NextPage = () => {
+const items = ["HTML/CSS", "JavaScriptについて", "React", "Swift", "WebAPI"]
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,13 +19,7 @@ const Home: NextPage = () => {
       <h1>my-note</h1>
       </header>
       <main className={styles.main}>
-       <ul>
-         <li>aaaa</li>
-         <li>ssss</li>
-         <li>dddd</li>
-         <li>ffff</li>
-         <li>bbbbb</li>
-       </ul>
+        {<ItemList items={items}/>}
       </main>
 
       <footer className={styles.footer}>
