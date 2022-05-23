@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
 const items = ["HTML/CSS", "JavaScriptについて", "React", "Swift", "WebAPI"]
+const innerItems = ["レスポンシブ対応時のスタイルの指定方法", "test", "test01"]
 
   return (
     <div className={styles.container}>
@@ -19,7 +20,7 @@ const items = ["HTML/CSS", "JavaScriptについて", "React", "Swift", "WebAPI"]
       <h1>my-note</h1>
       </header>
       <main className={styles.main}>
-        {<ItemList items={items}/>}
+        {<ItemList items={items} innerItems={innerItems}/>}
       </main>
 
       <footer className={styles.footer}>

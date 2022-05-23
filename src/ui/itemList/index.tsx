@@ -1,16 +1,34 @@
 import styled from "styled-components";
+import Link from 'next/link';
+
+
 
 type propsType = {
   items: string[] 
+  innerItems: string[]
 }
 
 const ItemLists = (props:propsType) =>{
 
-  const lists = props.items.map((item)=>{
+  const innerLists = props.innerItems.map((item)=>{
     return(
-      <li key={item}>{item}</li>
+      <li key={item}>
+        <Link href="">{item}</Link>
+      </li>
     )
   })
+
+  const lists = props.items.map((item)=>{
+    return(
+      <li key={item}>
+        <h2>{item}</h2>
+        <ul>
+          {innerLists}
+        </ul>
+      </li>
+    )
+  })
+
   return(
     <>
       <TableContents>
@@ -25,11 +43,18 @@ const TableContents = styled.ul({
   "li":{
     color: "#fff",
     padding: "0.8rem",
-    transition: "0.2s",
-    cursor: "pointer",
-    ":hover":{
-      color: "#B260EA",
+    "a":{
+      display: "block",
+      color: "#fff",
+      // padding: "0.8rem",
+      transition: "0.2s",
+      cursor: "pointer",
+      width: "100%",
+      ":hover":{
+        color: "#B260EA",
+      },
     }
+    
   }
 })
 
