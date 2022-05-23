@@ -1,29 +1,32 @@
 import styled from "styled-components";
 import Link from 'next/link';
 
-
-
-type propsType = {
-  items: string[] 
-  innerItems: string[]
+type Array = {
+  "title": string
+  "lists": string[]
 }
 
-const ItemLists = (props:propsType) =>{
+type propsType = {
+  items: Array[]
+}
 
-  const innerLists = props.innerItems.map((item)=>{
-    return(
-      <li key={item}>
-        <Link href="">{item}</Link>
-      </li>
-    )
-  })
+
+const ItemLists = (props:propsType) =>{
+  const titleList = []
+  
+
+
 
   const lists = props.items.map((item)=>{
     return(
-      <li key={item}>
-        <h2>{item}</h2>
+      <li key={item.title}>
+        <h2>{item.title}</h2>
         <ul>
-          {innerLists}
+          {/* {
+            item.lists.map((list)=>{
+              <li><Link href={list}>{list}</Link></li>
+            })
+          } */}
         </ul>
       </li>
     )
@@ -43,6 +46,9 @@ const TableContents = styled.ul({
   "li":{
     color: "#fff",
     padding: "0.8rem",
+    "h2":{
+      padding: "0.8rem",
+    },
     "a":{
       display: "block",
       color: "#fff",
