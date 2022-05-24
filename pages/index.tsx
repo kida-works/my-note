@@ -9,23 +9,23 @@ const Home: NextPage = () => {
 const items = [
     {
       "title": "HTML/CSS",
-      lists:  ["レスポンシブ対応時のスタイルの指定方法", "test", "test01"]
+      "lists":  ["レスポンシブ対応時のスタイルの指定方法", "test", "test01"]
     },
     {
       "title": "JavaScriptについて",
-      lists: ["レスポンシブ対応時のスタイルの指定方法", "test", "test01"]
+      "lists": ["レスポンシブ対応時のスタイルの指定方法", "test", "test01"]
     },
     {
       "title": "React",
-      lists: ["レスポンシブ対応時のスタイルの指定方法", "React", "test01"]
+      "lists": ["レスポンシブ対応時のスタイルの指定方法", "React", "test01"]
     },
     {
       "title": "Swift",
-      lists: ["レスポンシブ対応時のスタイルの指定方法", "Swift", "test01"]
+      "lists": ["レスポンシブ対応時のスタイルの指定方法", "Swift", "test01"]
     },
     {
       "title": "WebAPI",
-      lists: ["レスポンシブ対応時のスタイルの指定方法", "WebAPI", "test01"]
+      "lists": ["レスポンシブ対応時のスタイルの指定方法", "WebAPI", "test01"]
     },
   ]
 
