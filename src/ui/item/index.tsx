@@ -1,19 +1,21 @@
 import Link from 'next/link';
+import React from "react"
 
-type itemType = {
-  item:string[]
+type propsType = {
+  lists:string[]
 }
-const Items = (props:itemType) => {
-  const list = props.item.map((item)=>{
+
+const InnerItems:any = (props: propsType) => {
+  const item = props.lists.map((list)=>{
       return(
-        <li key={item}>
-          <Link href={""}>{item}</Link>
+        <li key={list}>
+          <Link href={""}>{list}</Link>
         </li>
       )
   })
   return (
-    {list}
+    {item}
   )
 }
 
-export default Items
+export default InnerItems

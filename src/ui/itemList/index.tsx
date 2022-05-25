@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from 'next/link';
 import { normalizeRepeatedSlashes } from "next/dist/shared/lib/utils";
-import Items from "../item"
+import InnerItems from "../item"
 
 type Array = {
   "title": string
@@ -13,15 +13,14 @@ type propsType = {
 }
 
 
-
 const ItemLists = (props:propsType) =>{
-
+  
   const lists = props.items.map((item)=>{
     return(
       <li key={item.title}>
         <h2>{item.title}</h2>
         <ul>
-          <Items item={item.lists}/>
+          <InnerItems lists={item.lists} />
         </ul>
       </li>
     )

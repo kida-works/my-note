@@ -6,6 +6,11 @@ import styles from '../styles/Home.module.css'
 
 
 const Home: NextPage = () => {
+  type Array = {
+    "title": string
+    "lists": string[]
+  }
+  
 const items = [
     {
       "title": "HTML/CSS",
