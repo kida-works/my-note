@@ -53,7 +53,12 @@ const TableContents = styled.ul({
       ":hover":{
         color: "#B260EA",
       },
-    }
+    },
+    // "ul":{
+    //   "li":{
+        
+    //   }
+    // }
     
   }
 })

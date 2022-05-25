@@ -5,8 +5,9 @@ type propsType = {
   lists:string[]
 }
 
-const InnerItems:any = (props: propsType) => {
-  const item = props.lists.map((list)=>{
+const InnerItems = (props: propsType) => {
+  const lists:string[] = props.lists
+  const item = lists.map((list)=>{
       return(
         <li key={list}>
           <Link href={""}>{list}</Link>
@@ -14,7 +15,10 @@ const InnerItems:any = (props: propsType) => {
       )
   })
   return (
-    {item}
+    <>
+      {item}
+    </>
+    
   )
 }
 
