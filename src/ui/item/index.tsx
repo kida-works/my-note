@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import React from "react"
+import styled from "styled-components"
+
 
 type propsType = {
   lists:string[]
@@ -9,9 +11,9 @@ const InnerItems = (props: propsType) => {
   const lists:string[] = props.lists
   const item = lists.map((list)=>{
       return(
-        <li key={list}>
+        <ListItem key={list}>
           <Link href={""}>{list}</Link>
-        </li>
+        </ListItem>
       )
   })
   return (
@@ -21,5 +23,23 @@ const InnerItems = (props: propsType) => {
     
   )
 }
+
+const ListItem = styled.li({
+    color: "#fff",
+    padding: "0.8rem",
+    ":hover":{
+      color: "#B260EA",
+      "a":{
+        display: "block",
+        color: "#B260EA",
+        transition: "0.2s",
+        cursor: "pointer",
+        width: "100%",
+      },
+    },
+    
+    
+})
+
 
 export default InnerItems

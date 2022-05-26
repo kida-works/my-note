@@ -3,6 +3,7 @@ import Head from 'next/head'
 import ItemList from './../src/ui/itemList'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import styled from "styled-components"
 
 
 const Home: NextPage = () => {
@@ -54,5 +55,8 @@ const items = [
     </div>
   )
 }
+const Main = styled.main({
+  padding:"2.4rem 0"
+})
 
 export default Home

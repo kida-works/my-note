@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Link from 'next/link';
 import { normalizeRepeatedSlashes } from "next/dist/shared/lib/utils";
 import InnerItems from "../item"
 
@@ -40,26 +39,6 @@ const TableContents = styled.ul({
   "li":{
     color: "#fff",
     padding: "0.8rem",
-    "h2":{
-      padding: "0.8rem",
-    },
-    "a":{
-      display: "block",
-      color: "#fff",
-      // padding: "0.8rem",
-      transition: "0.2s",
-      cursor: "pointer",
-      width: "100%",
-      ":hover":{
-        color: "#B260EA",
-      },
-    },
-    // "ul":{
-    //   "li":{
-        
-    //   }
-    // }
-    
   }
 })
 
