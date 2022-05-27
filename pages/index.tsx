@@ -55,8 +55,8 @@ const items = [
     </div>
   )
 }
-const Main = styled.main({
-  padding:"2.4rem 0"
-})
+// const Main = styled.main({
+//   padding:"2.4rem 0"
+// })
 
 export default Home

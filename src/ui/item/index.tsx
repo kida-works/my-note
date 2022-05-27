@@ -12,7 +12,7 @@ const InnerItems = (props: propsType) => {
   const item = lists.map((list)=>{
       return(
         <ListItem key={list}>
-          <Link href={""}>{list}</Link>
+          <Link href={"/test"}>{list}</Link>
         </ListItem>
       )
   })
