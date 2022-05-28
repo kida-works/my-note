@@ -39,6 +39,10 @@ const TableContents = styled.ul({
   "li":{
     color: "#fff",
     padding: "0.8rem",
+    "h2":{
+      padding: "0.8rem 0",
+      borderBottom: "solid #fff 1px",
+    }
   }
 })
 

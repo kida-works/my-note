@@ -1,18 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export type DateType = [InnerDataTypes]
-
-interface InnerDataTypes  {
-  title: string,
-  lists: [ListsType]
-}
 
 
 interface ListsType {
   text: string,
-  href: string
+  href: string,
 }
+
+type InnerDataTypes = {
+  title: string;
+  lists: ListsType[];
+}
+
+export type DateType = InnerDataTypes[]
+
 
 
 

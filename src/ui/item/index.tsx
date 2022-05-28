@@ -27,12 +27,15 @@ const InnerItems = (props: propsType) => {
 const ListItem = styled.li({
     color: "#fff",
     padding: "0.8rem",
+    transition: "0.2s",
     ":hover":{
       color: "#B260EA",
+      fontWeight: "bold",
+      // transform: "scaleZ(5)",
+      // transformOrigin: "center",
       "a":{
         display: "block",
         color: "#B260EA",
-        transition: "0.2s",
         cursor: "pointer",
         width: "100%",
       },
