@@ -1,6 +1,7 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "stylelint-config-standard",
     "plugin:import/recommended",
     "plugin:import/warnings",
     "prettier"
