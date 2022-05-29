@@ -4,6 +4,16 @@ import ItemList from './../src/ui/itemList'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
+import { getSortedPostsData } from '../src/lib/posts';
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
 
 const Home: NextPage = () => {
   type Array = {
