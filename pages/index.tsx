@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { FC, ReactNode } from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 import ItemList from './../src/ui/itemList'
 import Image from 'next/image'
@@ -30,14 +31,16 @@ type dataItemsType = {
   title: string
   date: any
 }
-export const Item  = (props: dataItemsType) => {
-  return(
-    <li key={props.id}>
-      {props.title} : {props.id} : {props.date}
-    </li>
+export const Item = (props: dataItemsType) => {
+  return (
+    <>
+      <p>
+        {props.title} : {props.id} : {props.date}
+      </p>
+    </>
+   
   )
 }
-
 
 const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
   allPostsData,
@@ -87,11 +90,10 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
         {<ItemList items={items} />}
         <section className=''>
           <ul className=''>
-            {allPostsData.map((item: postDataResult ) => (
-              <Item title={item.title}  id={item.id} date={item.date} />
-              // <li className='' key={item.id}>
-              //   {item.title} : {item.id} : {item.date}
-              // </li>
+            {allPostsData.map((item: postDataResult) => (
+              <li key={item.id}>
+                <Item title={item.title} id={item.id} date={item.date} />
+              </li>
             ))}
           </ul>
         </section>
