@@ -25,6 +25,19 @@ type postDataResult = {
   orig: string
   children: ReactNode
 }
+type dataItemsType = {
+  id: string
+  title: string
+  date: any
+}
+export const Item  = (props: dataItemsType) => {
+  return(
+    <li key={props.id}>
+      {props.title} : {props.id} : {props.date}
+    </li>
+  )
+}
+
 
 const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
   allPostsData,
@@ -59,6 +72,7 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
     },
   ]
 
+  console.log(allPostsData)
   return (
     <div className={styles.container}>
       <Head>
@@ -73,10 +87,11 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
         {<ItemList items={items} />}
         <section className=''>
           <ul className=''>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className='' key={id}>
-                {title} : {id} : {date}
-              </li>
+            {allPostsData.map((item: postDataResult ) => (
+              <Item title={item.title}  id={item.id} date={item.date} />
+              // <li className='' key={item.id}>
+              //   {item.title} : {item.id} : {item.date}
+              // </li>
             ))}
           </ul>
         </section>
