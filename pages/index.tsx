@@ -34,11 +34,10 @@ type dataItemsType = {
 export const Item = (props: dataItemsType) => {
   return (
     <>
-      <p>
+      <Link href='./test'>
         {props.title} : {props.id} : {props.date}
-      </p>
+      </Link>
     </>
-   
   )
 }
 
