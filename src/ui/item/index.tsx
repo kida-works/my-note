@@ -8,14 +8,16 @@ type propsType = {
 
 const InnerItems = (props: propsType) => {
   const lists: string[] = props.lists
-  const item = lists.map((list) => {
+  const items = lists.map((list) => {
     return (
       <ListItem key={list}>
-        <Link href={'/test'}>{list}</Link>
+        <p>
+          {list}
+        </p>
       </ListItem>
     )
   })
-  return <>{item}</>
+  return <>{items}</>
 }
 
 const ListItem = styled.li({
