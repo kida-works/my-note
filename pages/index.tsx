@@ -34,8 +34,8 @@ type dataItemsType = {
 export const Item = (props: dataItemsType) => {
   return (
     <>
-      <Link href='./test'>
-        {props.title} : {props.id} : {props.date}
+      <Link href='./'>
+        <p>{props.title} : {props.id} : {props.date}</p>
       </Link>
     </>
   )

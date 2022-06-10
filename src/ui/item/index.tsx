@@ -11,8 +11,8 @@ const InnerItems = (props: propsType) => {
   const items = lists.map((list) => {
     return (
       <ListItem key={list}>
-        <Link href={''} passHref>
-          {list}
+        <Link href={'./'}>
+        <p>{list}</p>
         </Link>
       </ListItem>
     )
