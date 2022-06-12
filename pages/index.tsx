@@ -34,8 +34,10 @@ type dataItemsType = {
 export const Item = (props: dataItemsType) => {
   return (
     <>
-      <Link href='./'>
-        <p>{props.title} : {props.id} : {props.date}</p>
+      <Link href={`./post/${props.id}`}>
+        <p>
+          {props.title} : {props.id} : {props.date}
+        </p>
       </Link>
     </>
   )
@@ -86,15 +88,15 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
         <h1>my-note</h1>
       </header>
       <main className={styles.main}>
-        {<ItemList items={items} />}
+        {/* {<ItemList items={items} />} */}
         <section className=''>
-          <ul className=''>
+          <TableContents className=''>
             {allPostsData.map((item: postDataResult) => (
               <li key={item.id}>
                 <Item title={item.title} id={item.id} date={item.date} />
               </li>
             ))}
-          </ul>
+          </TableContents>
         </section>
       </main>
 
@@ -107,5 +109,24 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
 // const Main = styled.main({
 //   padding:"2.4rem 0"
 // })
+
+const TableContents = styled.ul({
+  padding: '0 2.4rem',
+  li: {
+    listStyle: 'none',
+    color: '#fff',
+    padding: '0.8rem',
+    cursor: 'pointer',
+    ':hover': {
+      color: '#B260EA',
+      a: {
+        display: 'block',
+        color: '#B260EA',
+        cursor: 'pointer',
+        width: '100%',
+      },
+    },
+  },
+})
 
 export default Home
