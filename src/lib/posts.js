@@ -61,6 +61,8 @@ console.log(fileNames)
   });
 }
 
+
+
 export function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');

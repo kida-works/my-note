@@ -31,10 +31,13 @@ type dataItemsType = {
   title: string
   date: any
 }
+
+export const USERS_PATH = './posts'
+
 export const Item = (props: dataItemsType) => {
   return (
     <>
-      <Link href={`./posts/${props.id}`}>
+      <Link href={`${USERS_PATH}/${props.id}`}>
         <p>
           {props.title} : {props.id} : {props.date}
         </p>

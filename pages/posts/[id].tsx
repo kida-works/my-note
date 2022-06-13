@@ -39,7 +39,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(params: paramsType) {
+export async function getStaticProps<paramsType>({params}:any) {
+  console.log(params)
   const postData = getPostData(params.id)
   return {
     props: {
