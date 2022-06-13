@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import { FC, ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import ItemList from './../src/ui/itemList'
-import Image from 'next/image'
+// import ItemList from './../src/ui/itemList'
+// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import { getSortedPostsData } from '../src/lib/posts'
@@ -34,7 +34,7 @@ type dataItemsType = {
 export const Item = (props: dataItemsType) => {
   return (
     <>
-      <Link href={`./post/${props.id}`}>
+      <Link href={`./posts/${props.id}`}>
         <p>
           {props.title} : {props.id} : {props.date}
         </p>

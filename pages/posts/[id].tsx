@@ -1,14 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { type } from 'os'
-import { getPostData, getAllPostIds } from '../../../src/lib/posts'
+import { getPostData, getAllPostIds } from '../../src/lib/posts'
+import Layout from '../../src/ui/layout'
 // export default (req: NextApiRequest, res: NextApiResponse) => {
 //   const {
 //     query: { pid },
 //   } = req
 //   res.end(`Post: ${pid}`)
 // }
-
-import Layout from '../../../src/ui/layout'
 
 type postDataType = {
   title: string
