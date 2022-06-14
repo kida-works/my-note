@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
 import { type } from 'os'
 import { getPostData, getAllPostIds } from '../../src/lib/posts'
 import Layout from '../../src/ui/layout'
@@ -30,6 +31,9 @@ export default function Post(postData: postDataType) {
 type paramsType = {
   id: string
 }
+type propsType = {
+  props:paramsType
+}
 
 export async function getStaticPaths() {
   const paths = getAllPostIds()
@@ -39,12 +43,25 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps<paramsType>({params}:any) {
-  console.log(params)
+// type Props = { posts: Post[] };
+
+export const getStaticProps: GetStaticProps = async (params) => {
+  // ...
   const postData = getPostData(params.id)
   return {
     props: {
       postData,
     },
   }
-}
+};
+
+
+// export async function getStaticProps (params:paramsType) {
+//   console.log(params)
+//   const postData = getPostData(params.id)
+//   return {
+//     props: {
+//       postData,
+//     },
+//   }
+// }
