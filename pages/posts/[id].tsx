@@ -17,13 +17,12 @@ type postDataType = {
 }
 
 export default function Post(postData: postDataType) {
+  console.log(postData)
   return (
     <Layout>
-      {postData.title}
-      <br />
-      {postData.id}
-      <br />
-      {postData.date}
+      <p>{postData.title}</p>
+      <p>{postData.id}</p>
+      <p>{postData.date}</p>
     </Layout>
   )
 }
@@ -45,7 +44,7 @@ export async function getStaticPaths() {
 
 // type Props = { posts: Post[] };
 
-export const getStaticProps: GetStaticProps = async (params) => {
+export const getStaticProps: GetStaticProps = async ({params}:any) => {
   // ...
   const postData = getPostData(params.id)
   return {
