@@ -2,13 +2,14 @@ import type { NextPage } from 'next'
 import { FC, ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 // import ItemList from './../src/ui/itemList'
 // import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import { getSortedPostsData } from '../src/lib/posts'
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -21,10 +22,10 @@ type postDataResult = {
   id: string
   title: string
   date: { title: string; date: string }
-  isEmpty: boolean
-  excerpt: string
-  orig: string
-  children: ReactNode
+  // isEmpty: boolean
+  // excerpt: string
+  // orig: string
+  // children: ReactNode
 }
 type dataItemsType = {
   id: string
@@ -56,30 +57,7 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
     lists: string[]
   }
 
-  const items = [
-    {
-      title: 'HTML/CSS',
-      lists: ['レスポンシブ対応時のスタイルの指定方法', 'test', 'test01'],
-    },
-    {
-      title: 'JavaScriptについて',
-      lists: ['レスポンシブ対応時のスタイルの指定方法', 'test', 'test01'],
-    },
-    {
-      title: 'React',
-      lists: ['レスポンシブ対応時のスタイルの指定方法', 'React', 'test01'],
-    },
-    {
-      title: 'Swift',
-      lists: ['レスポンシブ対応時のスタイルの指定方法', 'Swift', 'test01'],
-    },
-    {
-      title: 'WebAPI',
-      lists: ['レスポンシブ対応時のスタイルの指定方法', 'WebAPI', 'test01'],
-    },
-  ]
 
-  console.log(allPostsData)
   return (
     <div className={styles.container}>
       <Head>
@@ -91,7 +69,6 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
         <h1>my-note</h1>
       </header>
       <main className={styles.main}>
-        {/* {<ItemList items={items} />} */}
         <section className=''>
           <TableContents className=''>
             {allPostsData.map((item: postDataResult) => (
