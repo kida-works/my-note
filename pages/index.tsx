@@ -52,11 +52,7 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
 }: {
   allPostsData: Array<postDataResult>
 }) => {
-  type Array = {
-    title: string
-    lists: string[]
-  }
-
+ 
 
   return (
     <div className={styles.container}>
