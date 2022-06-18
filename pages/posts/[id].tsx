@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { type } from 'os'
 import { getPostData, getAllPostIds } from '../../src/lib/posts'
 import Layout from '../../src/ui/layout'
 import { ParsedUrlQuery } from 'node:querystring'
+
 // export default (req: NextApiRequest, res: NextApiResponse) => {
 //   const {
 //     query: { pid },
@@ -29,13 +30,13 @@ export default function Post(postData: postDataType) {
 }
 
 type paramsType = {
-  id: string,
-  title:string,
-  date:string,
-  key:string
+  id: string
+  title: string
+  date: string
+  key: string
 }
 type propsType = {
-  postData:paramsType
+  postData: paramsType
 }
 
 export async function getStaticPaths() {
@@ -49,20 +50,18 @@ interface Params extends ParsedUrlQuery {
   id: string
 }
 
-
 // type Props = { posts: Post[] };
 
-export const getStaticProps: GetStaticProps = async (context:paramsType) => {
+export const getStaticProps: GetStaticProps = async (context: paramsType) => {
   // ...
-  
+
   const postData = getPostData(context.id)
   return {
     props: {
       postData,
     },
   }
-};
-
+}
 
 // export async function getStaticProps (params:paramsType) {
 //   console.log(params)
