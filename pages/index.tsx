@@ -52,8 +52,6 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
 }: {
   allPostsData: Array<postDataResult>
 }) => {
- 
-
   return (
     <div className={styles.container}>
       <Head>
