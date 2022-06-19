@@ -22,9 +22,9 @@ export default function Post(postData: postDataType) {
   console.log(postData)
   return (
     <Layout>
-      <p>{postData.title}</p>
+      {/* <p>{postData.title}</p> */}
       <p>{postData.id}</p>
-      <p>{postData.date}</p>
+      {/* <p>{postData.date}</p> */}
     </Layout>
   )
 }
