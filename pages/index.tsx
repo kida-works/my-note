@@ -18,6 +18,9 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
+import path from 'path'
+const postsDirectory = path.join(process.cwd(), 'posts')
+
 type postDataResult = {
   id: string
   title: string
@@ -52,6 +55,7 @@ const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
 }: {
   allPostsData: Array<postDataResult>
 }) => {
+  console.log(postsDirectory)
   return (
     <div className={styles.container}>
       <Head>

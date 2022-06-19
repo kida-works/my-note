@@ -46,16 +46,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   }
 }
-interface Params extends ParsedUrlQuery {
+interface Params extends GetStaticProps {
   id: string
 }
 
 // type Props = { posts: Post[] };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps = async (params: Params) => {
   // ...
-
-  const postData = getPostData(context.id)
+  const postData = getPostData(params.id)
   return {
     props: {
       postData,
@@ -63,7 +62,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-// export async function getStaticProps (params:paramsType) {
+// export async function getStaticProps (params:any) {
 //   console.log(params)
 //   const postData = getPostData(params.id)
 //   return {
