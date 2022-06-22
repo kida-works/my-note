@@ -47,33 +47,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-// interface Params {
-//   id: string
-//   title:string,
-//   date:string
-// }
-interface Params extends ParsedUrlQuery {
+type Params =  {
+  id: string
+  title:string,
+  date:string
+}
+interface Props extends ParsedUrlQuery {
   id: string
   title: string
   body: string
   date:string
 }
 
-export interface Item {
-  id: number
-  title: string
-  body: string
-}
-
-interface Props {
-  item: Item
+interface props {
+  id: string
 }
 
 
 // type Props = { posts: Post[] };
 
 
-export const getStaticProps: GetStaticProps<Params> = async ({params}) => {
+export const getStaticProps: GetStaticProps<Params> = async (params: props) => {
   // ...
   const postData = getPostData(params!.id)
   console.log(postData)
