@@ -65,9 +65,9 @@ interface props {
 
 // type Props = { posts: Post[] };
 
-export const getStaticProps: GetStaticProps<Params | Props> = async (params: props) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   // ...
-  const postData = getPostData(params!.id)
+  const postData = getPostData(context.id)
   console.log(postData)
 
   // returnの方が間違っている
