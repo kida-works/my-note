@@ -68,7 +68,7 @@ interface props {
 
 // type Props = { posts: Post[] };
 
-export type postData = {
+type postData = {
   id:string
   contentHtml:string
   title:string
@@ -81,12 +81,11 @@ type staticProps = {
   }
 }
 
-export const getStaticProps = async ({params}:{params:{id:string}}):Promise<staticProps>=>{
+export const getStaticProps = async ({params}:{params:{id:string}}):Promise<staticProps | any>=>{
   // ...
   const postData = getPostData(params.id)
   console.log(postData)
 
-  // returnの方が間違っている
   return {
     props: {
       postData,
