@@ -12,6 +12,8 @@ import { ParsedUrlQuery } from 'node:querystring'
 //   res.end(`Post: ${pid}`)
 // }
 
+
+
 type postDataType = {
   title: string
   id: string
@@ -28,6 +30,7 @@ export default function Post(postData: postDataType) {
     </Layout>
   )
 }
+
 
 type paramsType = {
   id: string
@@ -65,16 +68,29 @@ interface props {
 
 // type Props = { posts: Post[] };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export type postData = {
+  id:string
+  contentHtml:string
+  title:string
+  date:string
+}
+
+type staticProps = {
+  props:{
+      postData:postData
+  }
+}
+
+export const getStaticProps = async ({params}:{params:{id:string}}):Promise<staticProps>=>{
   // ...
-  const postData = getPostData(context.id)
+  const postData = getPostData(params.id)
   console.log(postData)
 
   // returnの方が間違っている
   return {
     props: {
       postData,
-      // id: 'test',
+     
     },
   }
 }

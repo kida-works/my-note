@@ -72,7 +72,7 @@ interface postData {
   id: string
 }
 
-export const getPostData = async (id: string) => {
+export const getPostData = async (id: string): Promise<postData> => {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
