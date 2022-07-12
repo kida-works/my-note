@@ -67,7 +67,7 @@ interface props {
 
 type postData = {
   id: string
-  contentHtml?: string
+  contentHtml: string
   title: string
   date: string
 }

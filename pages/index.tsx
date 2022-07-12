@@ -30,7 +30,7 @@ type postDataResult = {
   // orig: string
   // children: ReactNode
 }
-type dataItemsType = {
+interface dataItemsType {
   id: string
   title: string
   date: any
@@ -44,6 +44,9 @@ export const Item = (props: dataItemsType) => {
       <Link href={`${USERS_PATH}/${props.id}`}>
         <p>
           {props.title} : {props.id} : {props.date}
+          {console.log("title:", typeof props.title)}
+          {console.log("id:", typeof props.id)}
+          {console.log("date:", typeof props.date)}
         </p>
       </Link>
     </>
