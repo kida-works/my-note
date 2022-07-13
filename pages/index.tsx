@@ -44,9 +44,9 @@ export const Item = (props: dataItemsType) => {
       <Link href={`${USERS_PATH}/${props.id}`}>
         <p>
           {props.title} : {props.id} : {props.date}
-          {console.log("title:", typeof props.title)}
+          {/* {console.log("title:", typeof props.title)}
           {console.log("id:", typeof props.id)}
-          {console.log("date:", typeof props.date)}
+          {console.log("date:", typeof props.date)} */}
         </p>
       </Link>
     </>
@@ -54,9 +54,7 @@ export const Item = (props: dataItemsType) => {
 }
 
 const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
-  allPostsData,
-}: {
-  allPostsData: Array<postDataResult>
+  allPostsData
 }) => {
   console.log(postsDirectory)
   return (
