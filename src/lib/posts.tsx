@@ -11,7 +11,7 @@ type idType = {
   id: string
 }
 
-export function getSortedPostsData() {
+export const getSortedPostsData=()=> {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
@@ -58,6 +58,7 @@ export function getAllPostIds() {
   //       id: 'pre-rendering'
   //     }
   //   }
+
   // ]
   return fileNames.map((fileName) => {
     return {
