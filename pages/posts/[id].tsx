@@ -61,11 +61,7 @@ type staticProps = {
   }
 }
 
-export const getStaticProps = async ({
-  params,
-}: {
-  params: { id: string }
-}) => {
+export const getStaticProps = async ({ params }: { params: { id: string } }) => {
   // ...
   const postData = getPostData(params.id)
   console.log(postData)
@@ -84,8 +80,7 @@ type postDataType = {
   contentHtml: string
 }
 
-export default function Post(postData: postDataType) {
- 
+const Post = (postData: postDataType) => {
   return (
     <Layout>
       {/* <p>{postData.title}</p> */}
@@ -95,6 +90,7 @@ export default function Post(postData: postDataType) {
   )
 }
 
+export default Post
 // export async function getStaticProps (params:any) {
 //   console.log(params)
 //   const postData = getPostData(params.id)
