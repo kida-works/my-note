@@ -50,9 +50,9 @@ interface props {
 
 type postData = {
   id: string
-  contentHtml: string
+  // contentHtml: string
   title: string
-  date: any
+  date: string
 }
 
 type staticProps = {
@@ -77,7 +77,7 @@ type postDataType = {
   title: string
   id: string
   date: string
-  contentHtml: string
+  // contentHtml: string
 }
 
 const Post = (postData: postDataType) => {
