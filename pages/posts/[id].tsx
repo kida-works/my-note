@@ -50,21 +50,20 @@ interface props {
 
 type postData = {
   id: string
-  // contentHtml: string
+  contentHtml: string
   title: string
   date: string
 }
 
 type staticProps = {
   props: {
-    postData: postData
+    postData: Promise<postData>
   }
 }
 
-export const getStaticProps = async ({ params }: { params: { id: string } }) => {
+export const getStaticProps = async ({ params }: { params: { id: string } }): Promise<postData> => {
   // ...
   const postData = getPostData(params.id)
-  console.log(postData)
 
   return {
     props: {
