@@ -11,7 +11,7 @@ type idType = {
   id: string
 }
 
-export const getSortedPostsData=()=> {
+export const getSortedPostsData = () => {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
@@ -60,7 +60,7 @@ export const getAllPostIds = () => {
   //   }
 
   // ]
-  return fileNames.map((fileName) => {
+  return fileNames.map((fileName: any) => {
     return {
       params: {
         id: fileName.replace(/\.md$/, ''),
