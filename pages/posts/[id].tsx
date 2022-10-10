@@ -61,9 +61,10 @@ type staticProps = {
   }
 }
 
-export const getStaticProps: any = async ({ params }: { params: { id: string } }) => {
+export const getStaticProps = async (context: any) => {
   // ...
-  const postData = getPostData(params.id)
+  console.log(context)
+  const postData = getPostData(context)
 
   return {
     props: {
