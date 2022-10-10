@@ -56,15 +56,13 @@ type postData = {
 }
 
 type staticProps = {
-  props: {
-    postData: Promise<postData>
-  }
+  postData: Promise<postData>
 }
 
-export const getStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
   // ...
-  console.log(context)
-  const postData = getPostData(context)
+  // console.log(context)
+  const postData = await getPostData(context.id)
 
   return {
     props: {
@@ -77,15 +75,17 @@ type postDataType = {
   title: string
   id: string
   date: string
-  // contentHtml: string
+  contentHtml: string
 }
 
-const Post = (postData: postDataType) => {
+const Post = (postData: any) => {
+  // console.log(postData)
   return (
     <Layout>
-      {/* <p>{postData.title}</p> */}
+      <p>text</p>
       <p>{postData.title}</p>
-      {/* <p>{postData.date}</p> */}
+      <p>{postData.date}</p>
+      {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
     </Layout>
   )
 }

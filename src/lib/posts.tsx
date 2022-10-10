@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -72,8 +74,38 @@ export const getAllPostIds = () => {
 interface postData {
   id: string
 }
+// type postDataType = {
+//   title: string
+//   id: string
+//   date: string
+//   contentHtml: string
+// }
+
+type postDataType = {
+  locales: any
+  id: string
+  locale: any
+  defaultLocale: string
+}
+
+// export const getPostData = async (id: string): Promise<postData> => {
+//   const fullPath = path.join(postsDirectory, `${id}.md`)
+//   const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+//   // Use gray-matter to parse the post metadata section
+//   const matterResult = matter(fileContents)
+
+//   // console.log(matterResult.data)
+//   // Combine the data with the id
+//   console.log(matterResult)
+//   return {
+//     id,
+//     ...matterResult.data,
+//   }
+// }
 
 export const getPostData = async (id: string): Promise<postData> => {
+  console.log(id)
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -82,6 +114,9 @@ export const getPostData = async (id: string): Promise<postData> => {
 
   // console.log(matterResult.data)
   // Combine the data with the id
+  // console.log(matterResult)
+  const processedContent = await remark().use(html).process(matterResult.content)
+  const contentHtml = processedContent.toString()
   return {
     id,
     ...matterResult.data,
