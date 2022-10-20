@@ -71,15 +71,21 @@ export const getAllPostIds = () => {
   })
 }
 
-interface postData {
-  id: string
-}
+// interface postData {
+//   id: string
+// }
 // type postDataType = {
 //   title: string
 //   id: string
 //   date: string
 //   contentHtml: string
 // }
+export type postData = {
+  id:string
+  contentHtml:string
+  title:string
+  date:string
+}
 
 type postDataType = {
   locales: any
@@ -105,7 +111,7 @@ type postDataType = {
 // }
 
 export const getPostData = async (id: string): Promise<postData> => {
-  console.log(id)
+  // console.log(id)
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -115,10 +121,16 @@ export const getPostData = async (id: string): Promise<postData> => {
   // console.log(matterResult.data)
   // Combine the data with the id
   // console.log(matterResult)
-  const processedContent = await remark().use(html).process(matterResult.content)
-  const contentHtml = processedContent.toString()
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content)
+    const contentHtml = processedContent.toString()
+    const title = matterResult.data.title
+    const date = matterResult.data.date
   return {
     id,
-    ...matterResult.data,
+    contentHtml,
+    title,
+    date,
   }
 }

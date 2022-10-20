@@ -4,6 +4,7 @@ import { type } from 'os'
 import { getPostData, getAllPostIds } from '../../src/lib/posts'
 import Layout from '../../src/ui/layout'
 import { ParsedUrlQuery } from 'node:querystring'
+import type { NextPage } from 'next'
 
 // export default (req: NextApiRequest, res: NextApiResponse) => {
 //   const {
@@ -50,19 +51,28 @@ interface props {
 
 type postData = {
   id: string
-  contentHtml: string
-  title: string
-  date: string
+  // contentHtml: string
+  // title: string
+  // date: string
 }
 
-type staticProps = {
-  postData: Promise<postData>
+// type staticProps = {
+//   postData: Promise<postData>
+// }
+export type staticProps = {
+  props: {
+    postData: postData
+  }
 }
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { id: string }
+}): Promise<staticProps> => {
   // ...
-  // console.log(context)
-  const postData = await getPostData(context.id)
+  console.log(params)
+  const postData = await getPostData(params.id)
 
   return {
     props: {
@@ -78,14 +88,14 @@ type postDataType = {
   contentHtml: string
 }
 
-const Post = (postData: any) => {
-  // console.log(postData)
+const Post: NextPage<{ postData: postData }> = (postData: any) => {
+  console.log(postData)
   return (
     <Layout>
       <p>text</p>
       <p>{postData.title}</p>
       <p>{postData.date}</p>
-      {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
   )
 }

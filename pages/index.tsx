@@ -39,6 +39,7 @@ interface dataItemsType {
 export const USERS_PATH = './posts'
 
 export const Item = (props: dataItemsType) => {
+  
   return (
     <>
       <Link href={`${USERS_PATH}/${props.id}`}>
@@ -56,7 +57,8 @@ export const Item = (props: dataItemsType) => {
 const Home: NextPage<{ allPostsData: Array<postDataResult> }> = ({
   allPostsData
 }) => {
-  console.log(postsDirectory)
+  // console.log(postsDirectory)
+ 
   return (
     <div className={styles.container}>
       <Head>
