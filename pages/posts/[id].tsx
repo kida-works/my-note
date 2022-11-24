@@ -89,13 +89,13 @@ type postDataType = {
 }
 
 const Post: NextPage<{ postData: postData }> = (postData: any) => {
-  console.log(postData)
+  const data = postData.postData
+
   return (
-    <Layout>
-      <p>text</p>
-      <p>{postData.title}</p>
-      <p>{postData.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    <Layout test>
+      <p>{data.title}</p>
+      <p>{data.date}</p>
+      <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
     </Layout>
   )
 }
