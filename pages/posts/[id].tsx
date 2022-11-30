@@ -6,12 +6,6 @@ import Layout from '../../src/ui/layout'
 import { ParsedUrlQuery } from 'node:querystring'
 import type { NextPage } from 'next'
 
-// export default (req: NextApiRequest, res: NextApiResponse) => {
-//   const {
-//     query: { pid },
-//   } = req
-//   res.end(`Post: ${pid}`)
-// }
 
 type paramsType = {
   id: string
@@ -93,20 +87,14 @@ const Post: NextPage<{ postData: postData }> = (postData: any) => {
 
   return (
     <Layout article>
-      <p>{data.title}</p>
-      <p>{data.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+      <article className='articleAll'>
+        <h2>{data.title}</h2>
+        <p>{data.date}</p>
+        <div className='articleBody' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+      </article>
     </Layout>
   )
 }
 
 export default Post
-// export async function getStaticProps (params:any) {
-//   console.log(params)
-//   const postData = getPostData(params.id)
-//   return {
-//     props: {
-//       postData,
-//     },
-//   }
-// }
+
