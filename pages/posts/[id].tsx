@@ -92,7 +92,7 @@ const Post: NextPage<{ postData: postData }> = (postData: any) => {
   const data = postData.postData
 
   return (
-    <Layout test>
+    <Layout article>
       <p>{data.title}</p>
       <p>{data.date}</p>
       <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />

@@ -2,19 +2,27 @@ import Head from 'next/head'
 import Image from 'next/image'
 // import styles from './layout.module.css';
 // import utilStyles from '../styles/utils.module.css';
+import styled from 'styled-components'
 import Link from 'next/link'
 
 const name = 'shiro'
 export const siteTitle = 'Next.js Shiro'
 
+const HeaderElement = styled.header({
+  borderBottom: '1px solid #eaeaea',
+  padding: '1.2rem 1.6rem',
+  cursor: 'pointer',
+  color: '#fff',
+})
+
 export default function Layout({
   children,
   home,
-  test,
+  article,
 }: {
   children?: any
   home?: any
-  test?: any
+  article?: any
 }) {
   return (
     <div className={''}>
@@ -31,43 +39,11 @@ export default function Layout({
         <meta name='twitter:card' content='summary_large_image' />
         <title>{siteTitle}</title>
       </Head>
-      <header className={''}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src='/images/profile.jpg'
-              className={''}
-              height={144}
-              width={144}
-              alt={name}
-            />
-            <h1 className={''}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href='/'>
-              <a>
-                <Image
-                  priority
-                  src='/images/profile.jpg'
-                  className={''}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={''}>
-              <Link href='/'>
-                <a className={''}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
+      <HeaderElement className='header'>
+        <h1>my-note</h1>
+      </HeaderElement>
       <main>{children}</main>
-      {test && (
+      {article && (
         <div className={''}>
           <Link href='/'>
             <a>← Back to home</a>
